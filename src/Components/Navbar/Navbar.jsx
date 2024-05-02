@@ -22,19 +22,44 @@ const Navbar = () => {
         <p>lets shop</p>
       </div>
       <ul className="nav-menu">
-        <li onClick={() => { setMenu("LocationPage") }}>Set location{menu === "LocationPage" ? <hr /> : <></>}</li>
-        <li onClick={() => { setMenu("SHOP") }}><Link to='/'></Link>SHOP{menu === "SHOP" ? <hr /> : <></>}</li>
-        <li onClick={() => { setMenu("Groceries") }}><Link to='/Groceries'></Link>Groceries{menu === "Groceries" ? <hr /> : <></>}</li>
-        <li onClick={() => { setMenu("Health care") }}><Link to='/Health care'></Link>Health care{menu === "Health care" ? <hr /> : <></>}</li>
-        <li onClick={() => { setMenu("Pick up") }}><Link to='/Pick up'></Link>Pick up{menu === "Pick up" ? <hr /> : <></>}</li>
+        <li className={`nav-menu-item ${menu === "LocationPage" ? "selected" : ""}`} onClick={() => { setMenu("LocationPage") }}>
+          <Link to='/location' className="nav-menu-link">
+            Set location
+            {menu === "LocationPage" ? <hr className="nav-menu-divider" /> : null}
+          </Link>
+        </li>
+        <li className={`nav-menu-item ${menu === "SHOP" ? "selected" : ""}`} onClick={() => { setMenu("SHOP") }}>
+          <Link to='/' className="nav-menu-link">
+            SHOP
+            {menu === "SHOP" ? <hr className="nav-menu-divider" /> : null}
+          </Link>
+        </li>
+        <li className={`nav-menu-item ${menu === "Groceries" ? "selected" : ""}`} onClick={() => { setMenu("Groceries") }}>
+          <Link to='/Groceries' className="nav-menu-link">
+            Groceries
+            {menu === "Groceries" ? <hr className="nav-menu-divider" /> : null}
+          </Link>
+        </li>
+        <li className={`nav-menu-item ${menu === "Health care" ? "selected" : ""}`} onClick={() => { setMenu("Health care") }}>
+          <Link to='/Health care' className="nav-menu-link">
+            Health care
+            {menu === "Health care" ? <hr className="nav-menu-divider" /> : null}
+          </Link>
+        </li>
+        <li className={`nav-menu-item ${menu === "Pick up" ? "selected" : ""}`} onClick={() => { setMenu("Pick up") }}>
+          <Link to='/Pick up' className="nav-menu-link">
+            Pick up
+            {menu === "Pick up" ? <hr className="nav-menu-divider" /> : null}
+          </Link>
+        </li>
 
       </ul>
       <div className="nav-login-cart">
-        {loggedIn===false && (
+        {loggedIn === false && (
           <button><Link to='/login'>Sign up</Link></button>
-        )}     
-        
-           <Link to='/cart'><img src={cart_icon} alt='' /></Link>
+        )}
+
+        <Link to='/cart'><img src={cart_icon} alt='' /></Link>
         <div className="nav-cart-count">0</div>
       </div>
     </div>
