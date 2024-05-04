@@ -34,18 +34,11 @@ const Navbar = () => {
             {menu === "SHOP" ? <hr className="nav-menu-divider" /> : null}
           </Link>
         </li>
-        <li className={`nav-menu-item ${menu === "Groceries" ? "selected" : ""}`} onClick={() => { setMenu("Groceries") }}>
-          <Link to='/Groceries' className="nav-menu-link">
-            Groceries
-            {menu === "Groceries" ? <hr className="nav-menu-divider" /> : null}
-          </Link>
-        </li>
-        <li className={`nav-menu-item ${menu === "Health care" ? "selected" : ""}`} onClick={() => { setMenu("Health care") }}>
-          <Link to='/Health care' className="nav-menu-link">
-            Health care
-            {menu === "Health care" ? <hr className="nav-menu-divider" /> : null}
-          </Link>
-        </li>
+        <Link to='/Items' className="nav-menu-link">
+          Items
+          {menu === "Items" ? <hr className="nav-menu-divider" /> : null}
+        </Link>
+
         <li className={`nav-menu-item ${menu === "Pick up" ? "selected" : ""}`} onClick={() => { setMenu("Pick up") }}>
           <Link to='/Pick up' className="nav-menu-link">
             Pick up

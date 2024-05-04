@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const port = 5001;
+const port = 5002;
 const mongoDB = require('./db');
 const cors = require('cors');
 const createUserRouter = require('./Routes/CreateUser');
