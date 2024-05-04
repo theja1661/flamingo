@@ -1,12 +1,13 @@
 import React, { useContext } from 'react'
-import './FoodDisplay.css'; 
-import Items from './Items'; // Adjust the import path as necessary
+import './CSS/FoodDisplay.css';
+
+import { StoreContext } from './Context/StoreContext';
+//import { food_list } from '../../Components/Assets/assets';
+
+import Items from './Items'; 
 
 
-
-//import { food_list } from '../Assets/assets'
-import { StoreContext } from '../../Pages/Context/StoreContext'
-import FoodItem from '../FoodItem/FoodItem'
+import FoodItem from './FoodItem'
 
 const FoodDisplay = ({category}) => {
 

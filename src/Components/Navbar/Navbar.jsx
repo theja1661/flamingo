@@ -39,12 +39,12 @@ const Navbar = () => {
           {menu === "Items" ? <hr className="nav-menu-divider" /> : null}
         </Link>
 
-        <li className={`nav-menu-item ${menu === "Pick up" ? "selected" : ""}`} onClick={() => { setMenu("Pick up") }}>
+        {/* <li className={`nav-menu-item ${menu === "Pick up" ? "selected" : ""}`} onClick={() => { setMenu("Pick up") }}>
           <Link to='/Pick up' className="nav-menu-link">
             Pick up
             {menu === "Pick up" ? <hr className="nav-menu-divider" /> : null}
           </Link>
-        </li>
+        </li> */}
 
       </ul>
       <div className="nav-login-cart">

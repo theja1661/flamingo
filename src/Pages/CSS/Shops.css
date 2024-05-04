@@ -1,0 +1,62 @@
+/* ShopsPage.css */
+
+.shops-page-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px;
+    font-family: Arial, sans-serif;
+}
+
+.shop {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    padding: 20px;
+}
+
+.shop-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-right: 20px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.shop-details {
+    display: flex;
+    align-items: center;
+}
+
+.shop-name {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.shop-location {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.shop-description {
+    font-size: 14px;
+    color: #777;
+    margin-bottom: 10px;
+}
+
+.shop-link {
+    display: inline-block;
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.shop-link:hover {
+    background-color: #0056b3;
+}

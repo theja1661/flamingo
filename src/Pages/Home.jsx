@@ -1,8 +1,7 @@
 import React,{useState} from 'react'
 import './Home.css'
 import Items from './Items'; 
-
-import FoodDisplay from '../Components/FoodDisplay/FoodDisplay'
+import FoodDisplay from './FoodDisplay'
 
 const Home=() => {
     const [category,setCategory]=useState("All");

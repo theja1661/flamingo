@@ -1,43 +1,70 @@
+
+
 import React, { useState } from 'react';
-import './LocationPage.css'; // Import CSS file for styling
+import './CSS/LocationPage.css'; // Import CSS file for styling
 
-const LocationPage = () => {
-  const [location, setLocation] = useState('');
-  const [submittedLocation, setSubmittedLocation] = useState('');
+const SendPackagePage = () => {
+  const [pickupLocation, setPickupLocation] = useState('');
+  const [dropLocation, setDropLocation] = useState('');
+  const [deliveryInstructions, setDeliveryInstructions] = useState('');
 
-  const handleLocationChange = (event) => {
-    setLocation(event.target.value);
+  const handlePickupLocationChange = (event) => {
+    setPickupLocation(event.target.value);
+  };
+
+  const handleDropLocationChange = (event) => {
+    setDropLocation(event.target.value);
+  };
+
+  const handleDeliveryInstructionsChange = (event) => {
+    setDeliveryInstructions(event.target.value);
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (location.trim() !== '') {
-      setSubmittedLocation(location.trim());
-      setLocation('');
-    }
+    // Handle form submission
+    console.log('Form submitted:', pickupLocation, dropLocation, deliveryInstructions);
   };
 
   return (
-    <div className="location-container">
-      <h1>Welcome to flamingo</h1>
-      <p>Please select your location to get started:</p>
-      <form onSubmit={handleSubmit} className="location-form">
-        <input
-          type="text"
-          value={location}
-          onChange={handleLocationChange}
-          placeholder="Enter your location"
-        />
-        <button type="submit">Submit</button>
-      </form>
-      {submittedLocation && (
-        <div className="selected-location">
-          <h2>Selected Location:</h2>
-          <p>{submittedLocation}</p>
+    <div className="send-package-container">
+      <h2>Send Package</h2>
+      <form onSubmit={handleSubmit} className="package-form">
+        <div className="form-group">
+          <label htmlFor="pickup-location">Pickup Location:</label>
+          <input
+            type="text"
+            id="pickup-location"
+            value={pickupLocation}
+            onChange={handlePickupLocationChange}
+            placeholder="Enter pickup location"
+            required
+          />
         </div>
-      )}
+        <div className="form-group">
+          <label htmlFor="drop-location">Drop Location:</label>
+          <input
+            type="text"
+            id="drop-location"
+            value={dropLocation}
+            onChange={handleDropLocationChange}
+            placeholder="Enter drop location"
+            required
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="delivery-instructions">Delivery Instructions:</label>
+          <textarea
+            id="delivery-instructions"
+            value={deliveryInstructions}
+            onChange={handleDeliveryInstructionsChange}
+            placeholder="Any special instructions for delivery?"
+          ></textarea>
+        </div>
+        <button type="submit">Send Package</button>
+      </form>
     </div>
   );
 };
 
-export default LocationPage;
+export default SendPackagePage;
