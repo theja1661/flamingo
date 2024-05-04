@@ -1,0 +1,20 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 9px 3%; /* Adjust the padding as needed */
+    position: relative; /* Ensure positioning context for absolute positioning */
+    height: 40px; /* Set the height of the navbar */
+}
+
+.navbar .Flamingo {
+    width: 10%; /* Adjust the width of the Flamingo icon */
+    max-width: 80px; /* Limit the maximum width of the Flamingo icon */
+}
+
+.navbar .Account {
+    width: 30px; /* Adjust the width of the Account icon */
+    height: 30Px; /* Adjust the height of the Account icon */
+    /* Add any additional styles as needed */
+}
+

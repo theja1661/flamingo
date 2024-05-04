@@ -7,7 +7,7 @@ const mongoose = require('mongoose');
 const app = express();
 
 // Connect to MongoDB database
-mongoose.connect('mongodb://localhost:27017/send_packages', { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect('mongodb+srv://thejasurendran:5hKy1nnIkhOEFJQ2@cluster1.sbjmanc.mongodb.net/FLAMINGO?retryWrites=true&w=majority&appName=Cluster1', { useNewUrlParser: true, useUnifiedTopology: true })
     .then(() => console.log('Connected to MongoDB'))
     .catch(err => console.error('Failed to connect to MongoDB', err));
 
@@ -43,6 +43,6 @@ app.get('/send-packages', async (req, res) => {
 });
 
 // Start the server
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 5050;
 app.listen(port, () => console.log(`Server is running on port ${port}`));
 

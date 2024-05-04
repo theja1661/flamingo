@@ -17,16 +17,15 @@ function App() {
       <BrowserRouter>
         <Navbar />
         <Routes>
-          <Route path='/' element={<Navbar/>} />
+          <Route path='/' element={<Shop/>} />
           <Route path='/Items' element={<Home />}>
           </Route>
-          <Route path='/Groceries' element={<ShopCategory category="Grocery" />} />
-          <Route path='/Health care' element={<ShopCategory category="Health" />} />
+          
           <Route path='/Pick up' element={<ShopCategory category="Pickup" />} />
           <Route path='/cart' element={<Cart />} />
           <Route path='/login' element={<LoginSignup />} />
           <Route path='/location' element={<LocationPage />} />
-          <Route path='/home' element={<Home />} />
+          
         </Routes>
         <Footer />
       </BrowserRouter>
