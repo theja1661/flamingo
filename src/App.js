@@ -10,6 +10,8 @@ import Cart from './Pages/Cart';
 import LocationPage from './Pages/LocationPage';
 import Footer from './Components/Footer/Footer';
 import Home from './Pages/Home';
+import FlamingoHome from './Pages/flamingoHome';
+
 
 function App() {
   return (
@@ -17,15 +19,17 @@ function App() {
       <BrowserRouter>
         <Navbar />
         <Routes>
-          <Route path='/' element={<Shop/>} />
-          <Route path='/Items' element={<Home />}>
-          </Route>
-          
+
+          <Route path='/' element={<FlamingoHome />} />
+
+          <Route path='/Items' element={<Home />}/>
+          <Route path='/shop' element={<Shop />} />
+
           <Route path='/Pick up' element={<ShopCategory category="Pickup" />} />
           <Route path='/cart' element={<Cart />} />
           <Route path='/login' element={<LoginSignup />} />
           <Route path='/location' element={<LocationPage />} />
-          
+
         </Routes>
         <Footer />
       </BrowserRouter>

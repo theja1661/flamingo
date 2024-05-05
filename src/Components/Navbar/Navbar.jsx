@@ -8,9 +8,12 @@ const Navbar = () => {
 
   const [menu, setMenu] = useState("Set location");
   const [loggedIn, setLoggedIn] = useState(false);
-
+  const [userName, setUserName] = useState('');
   useEffect(() => {
     if (localStorage.getItem('userEmail')) {
+      let email = localStorage.getItem('userEmail');
+      let name = email.split('@')[0];
+      setUserName(name);
       setLoggedIn(true);
     }
   }, []);
@@ -18,8 +21,9 @@ const Navbar = () => {
   return (
     <div className='navbar'>
       <div className="nav-logo">
-        <img src={logo} alt="" />
-        <p>lets shop</p>
+        <a href="/">
+          <img src={logo} alt="" />
+        </a>  <p> {userName} lets shop</p>
       </div>
       <ul className="nav-menu">
         <li className={`nav-menu-item ${menu === "LocationPage" ? "selected" : ""}`} onClick={() => { setMenu("LocationPage") }}>
@@ -28,17 +32,18 @@ const Navbar = () => {
             {menu === "LocationPage" ? <hr className="nav-menu-divider" /> : null}
           </Link>
         </li>
+        <li className={`nav-menu-item ${menu === "Items" ? "selected" : ""}`} onClick={() => { setMenu("Items") }}>
+          <Link to='/Items' className="nav-menu-link">
+            Items
+            {menu === "Items" ? <hr className="nav-menu-divider" /> : null}
+          </Link>
+        </li>
         <li className={`nav-menu-item ${menu === "SHOP" ? "selected" : ""}`} onClick={() => { setMenu("SHOP") }}>
-          <Link to='/' className="nav-menu-link">
-            SHOP
+          <Link to='/shop' className="nav-menu-link">
+            Shop
             {menu === "SHOP" ? <hr className="nav-menu-divider" /> : null}
           </Link>
         </li>
-        <Link to='/Items' className="nav-menu-link">
-          Items
-          {menu === "Items" ? <hr className="nav-menu-divider" /> : null}
-        </Link>
-
         {/* <li className={`nav-menu-item ${menu === "Pick up" ? "selected" : ""}`} onClick={() => { setMenu("Pick up") }}>
           <Link to='/Pick up' className="nav-menu-link">
             Pick up
