@@ -1,7 +1,5 @@
 const mongoose = require('mongoose');
-
-const { Schema } = mongoose;
-
+const {Schema} = mongoose;
 const SendPackageSchema = new Schema(
     {
         pickupLocation: {
@@ -15,11 +13,11 @@ const SendPackageSchema = new Schema(
         deliveryInstructions: {
             type: String
         },
-        createdAt: {
+        date: {
             type: Date,
             default: Date.now
         }
     }
-);
+)
 
 module.exports = mongoose.model('SendPackage', SendPackageSchema);

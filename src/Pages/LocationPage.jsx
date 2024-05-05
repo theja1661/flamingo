@@ -1,6 +1,6 @@
 
-
 import React, { useState } from 'react';
+import axios from 'axios';
 import './CSS/LocationPage.css'; // Import CSS file for styling
 
 const SendPackagePage = () => {
@@ -20,10 +20,25 @@ const SendPackagePage = () => {
     setDeliveryInstructions(event.target.value);
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    // Handle form submission
-    console.log('Form submitted:', pickupLocation, dropLocation, deliveryInstructions);
+    try {
+      // Send form data to backend
+      await axios.post('http://localhost:5002/api/sendpackage', {
+        pickupLocation,
+        dropLocation,
+        deliveryInstructions
+      });
+      // Clear form fields after successful submission
+      setPickupLocation('');
+      setDropLocation('');
+      setDeliveryInstructions('');
+      // Optionally, display a success message or redirect to another page
+      console.log('Package sent successfully');
+    } catch (error) {
+      // Handle error
+      console.error('Error sending package:', error);
+    }
   };
 
   return (
@@ -68,3 +83,4 @@ const SendPackagePage = () => {
 };
 
 export default SendPackagePage;
+

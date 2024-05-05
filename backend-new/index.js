@@ -5,6 +5,10 @@ const mongoDB = require('./db');
 const cors = require('cors');
 const createUserRouter = require('./Routes/CreateUser');
 const User = require('./models/User'); // Import the User model
+const SendPackRouter = require('./Routes/SendPack');
+const ProductsRouter=require('./Routes/Products');
+const SendPackage=require('./models/SendPackage');
+// const ProductsRouter = require('./Routes/Products.js');
 
 // Connect to MongoDB
 mongoDB();
@@ -15,7 +19,7 @@ app.use(cors()); // Enable CORS for all routes
 
 // Routes
 app.get('/', (req, res) => {
-  res.send('Hello World');
+  res.send('App working');
 });
 
 // Function to create a new user
@@ -49,6 +53,12 @@ app.post('/api/auth/login', async (req, res) => {
 
 // Mount the createUserRouter
 app.use('/api', createUserRouter);
+app.use("/api", SendPackRouter);
+app.use("/api/add", ProductsRouter);
+
+
+
+// app.use('/api/products', ProductsRouter);
 
 // Start the server
 app.listen(port, () => {

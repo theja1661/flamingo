@@ -1,0 +1,26 @@
+const mongoose = require('mongoose');
+const { Schema } = mongoose;
+
+const ProductItemSchema = new Schema({
+    name: {
+        type: String,
+        required: true
+    },
+    description: {
+        type: String,
+        required: true
+    },
+    category: {
+        type: String
+    },
+    price: {
+        type: Number,
+        required: true
+    },
+    image: {
+        type: String, // Store the image file path
+        required: true // Assuming the image is required
+    }
+});
+
+module.exports = mongoose.model('ProductItem', ProductItemSchema);
