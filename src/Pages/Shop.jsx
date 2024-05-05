@@ -73,7 +73,7 @@ const ShopsPage = () => {
                         <h3 className="shop-name">{shop.name}</h3>
                         <p className="shop-location">{shop.location}</p>
                         <p className="shop-description">{shop.description}</p>
-                        <Link to={shop.link} className="shop-link">Select Items</Link>
+                        <Link to="/Items" className="shop-link">Shop</Link>
                     </div>
                 </div>
             </div>
