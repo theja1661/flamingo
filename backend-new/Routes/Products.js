@@ -1,19 +1,24 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const ProductItem = require('../models/ProductItem');
+const Product = require("../models/ProductItem");
 
-// Route to create a new product
-router.post('/api/add', async (req, res) => {
+// POST route for creating a new product
+router.post("/products", async (req, res) => {
     try {
-        const { name, description, category, price, image } = req.body;
         // Create a new product using data from the request body
-        const newProduct = await ProductItem.create({ name, description, category, price, image });
-        res.status(201).json({ success: true, data: newProduct });
-    } catch (error) {
-        console.error("Error adding product:", error);
-        res.status(500).json({ success: false, error: "Internal server error" });
+        await Product.create({
+            name: req.body.name,
+            description: req.body.description,
+            category: req.body.category,
+            price: req.body.price,
+            image: req.body.image
+        });
+        res.json({ success: true, message: "Product created successfully" });
+    } catch (err) {
+        console.error(err);
+        res.json({ success: false, message: "Failed to create product" });
     }
 });
 
-
 module.exports = router;
+

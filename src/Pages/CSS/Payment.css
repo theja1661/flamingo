@@ -1,0 +1,62 @@
+/* payment.css */
+
+/* Container styles */
+.payment-container {
+    max-width: 600px;
+    margin: 50px auto; /* Center the container */
+    padding: 30px;
+    border-radius: 10px;
+    background-color: rgba(114, 113, 113, 0.8); /* Transparent white background */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    
+}
+
+/* Title styles */
+.payment-title {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 30px;
+    color: #753131;
+}
+
+/* Payment options container */
+.payment-options {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* Payment button styles */
+.payment-options button {
+    margin: 15px;
+    padding: 15px 40px;
+    font-size: 18px;
+    border: none;
+    border-radius: 30px;
+    background-color: #596168;
+    color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, transform 0.3s;
+}
+
+.payment-options button:hover {
+    background-color: #878e95;
+    transform: scale(1.05);
+}
+
+.payment-options button:focus {
+    outline: none;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+    .payment-container {
+        width: 90%;
+        padding: 20px;
+    }
+
+    .payment-options button {
+        padding: 12px 30px;
+        font-size: 16px;
+    }
+}

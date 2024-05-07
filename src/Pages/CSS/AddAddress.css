@@ -1,0 +1,71 @@
+/* Main container */
+body {
+    background-color: #e3e3e3; /* Light grey background for the page */
+  }
+  
+  /* Main container */
+/* Main container */
+.add-address-container {
+    max-width: 600px;
+    margin: 50px auto; /* Center the container */
+    padding: 20px 40px !important; /* Add more padding to the left and right sides */
+    border: 1px solid #616161;
+    border-radius: 10px;
+    background-color: #a5a5a5; /* White background */
+  }
+  
+  
+  
+  
+  /* Title */
+  .add-address-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 20px; /* Reduce font size for smaller title */
+    color: #1e1d1d; /* Dark gray text color */
+  }
+  
+  /* Form container */
+  .address-form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  /* Form group */
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  /* Label */
+  .form-group label {
+    font-weight: bold;
+    color: #333; /* Dark gray label text color */
+  }
+  
+  /* Form inputs */
+  input[type="text"],
+  textarea {
+    width: 100%;
+    padding: 100px;
+    border: 555px solid #861717;
+    border-radius: 5px;
+    font-size: 14px; /* Reduce font size for smaller inputs */
+  }
+  
+  /* Submit button */
+  button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #000000; /* Blue button background */
+    color: #fff; /* White text color */
+    font-size: 16px; /* Reduce font size for smaller button */
+    cursor: pointer;
+  }
+  
+  /* Button hover effect */
+  button[type="submit"]:hover {
+    background-color: #818181; /* Darker blue on hover */
+  }
+  

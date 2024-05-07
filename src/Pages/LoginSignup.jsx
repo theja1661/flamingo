@@ -1,12 +1,15 @@
+
+
 import React, { useState } from 'react';
 import './CSS/LoginSignup.css';
+//import { Link } from 'react-router-dom';
 
 const LoginSignup = () => {
-  const [credentials, setCredentials] = useState({ email: '', password: '' });
+  const [credentials, setCredentials] = useState({ name: '', email: '', password: '' });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await fetch("http://localhost:5002/api/auth/login", {
+    const response = await fetch("http://localhost:5002/api/auth/signup", {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -34,7 +37,8 @@ const LoginSignup = () => {
           <input type="password" placeholder='Password' value={credentials.password} onChange={(e) => setCredentials({ ...credentials, password: e.target.value })} />
         </div>
         <button onClick={handleSubmit}>Continue</button>
-        <p className="loginsignup-login">Already have an account?<span>Login here</span></p>
+        <p className="loginsignup-login">Already have an account?<span><a href="/Login">Login here</a></span></p>
+       
         <div className="loginsignup-agree">
           <input type="checkbox" name='' id='' />
           <p>By continuing, I agree to the terms of use & privacy policy.</p>

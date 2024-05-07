@@ -5,6 +5,7 @@ import { Routes,Route} from 'react-router-dom';
 import Add from "./Pages/Add/Add";
 import List from "./Pages/List/List";
 import  Orders from './Pages/Orders/Orders'; 
+import Cart from './Pages/Cart/Cart'
 
 const App = () => {
   return (

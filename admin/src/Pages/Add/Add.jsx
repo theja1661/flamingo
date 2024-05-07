@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect,useState } from 'react';
 import './Add.css';
 import { assets } from '../../assets/assets';
 import axios from "axios"
@@ -32,7 +32,7 @@ const Add = () => {
             formData.append("price",Number(data.price))
             formData.append("category",data.category)
             formData.append("image",image)
-            const response =await axios.post(`${url}/api/add`,formData)
+            const response =await axios.post(`${url}/api/ProductItem`,formData)
             if(response.data.success){
                 setData({
                     name:"",
@@ -44,9 +44,9 @@ const Add = () => {
             }
 
         }
-    // useEffect(()=>{
-    //     console.log(data);
-    // },[data])
+    useEffect(()=>{
+        console.log(data);
+    },[data])
 
     return (
         <div className='add'>

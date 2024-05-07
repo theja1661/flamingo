@@ -17,7 +17,7 @@ const Items = ({ category, setCategory }) => {
    <div className='container'>
     <div className='explore-menu' id='explore-menu'>
       <h1>HEY {userName} WELCOME</h1>
-      <p className='explore-menu-text'>choose anything</p>
+      
       <div className='explore-menu-list'>
         {menu_list.map((item, index) => {
           return (

@@ -2,8 +2,10 @@
     display: flex;
     justify-content: space-around;
     padding: 16px;
-    box-shadow: 0 1px 3px -2px black;
+    box-shadow: 0 1px 3px -2px rgb(221, 184, 184);
+    background-color: #ffffff;
   }
+  
   
   .nav-logo {
     display: flex;
@@ -38,7 +40,7 @@
   
   .nav-menu-link {
     text-decoration: none;
-    color: #626262; /* Adjust the color as needed */
+    color: #626262; 
   }
   
   .nav-menu hr {
@@ -87,10 +89,23 @@
   }
   
   .nav-menu-link:visited {
-    color: #626262; /* Color for visited links */
+    color: #626262; 
   }
   
   .nav-menu-link:link {
-    color: #626262; /* Color for non-visited links */
+    color: #626262; 
   }
+  .nav-login-cart button {
+    background-color: transparent;
+    color: #b3b13c; /* Medium sea green */
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    margin-right: 20px;
+    transition: color 0.3s ease;
+  }
+  
+  .nav-login-cart button:hover {
+    color: yellow; /* Yellow color on hover */
+}
   

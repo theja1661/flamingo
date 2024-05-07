@@ -1,61 +1,148 @@
-import React, { useState } from 'react'
-import './CSS/LoginSignup.css'
-export default function Login() {
-  const [credentials, setCredentials] = useState({ email: "", password: "" })
-  let navigate = useNavigate()
+// import React, { useState } from 'react';
+// import { Link } from 'react-router-dom';
+
+// const LoginSignup = () => {
+//   const [credentials, setCredentials] = useState({ email: '', password: '' });
+
+//   const handleSubmit = async (e) => {
+//     e.preventDefault();
+//     const response = await fetch("http://localhost:5002/api/auth/login", {
+//       method: 'POST',
+//       headers: {
+//         'Content-Type': 'application/json'
+//       },
+//       body: JSON.stringify({ email: credentials.email, password: credentials.password })
+//     });
+//     const json = await response.json();
+//     console.log(json);
+//     if (json.success) {
+//       localStorage.setItem('token', json.authToken);
+//       window.location.href = "/"; // Redirect to the homepage
+//     } else {
+//       alert(json.message);
+//     }
+//   };
+
+//   return (
+//     <div className='loginsignup'>
+//       <div className="loginsignup-container">
+//         <h1>Login</h1>
+//         <div className="loginsignup-fields">
+//           <input type="email" placeholder='Email Address' value={credentials.email} onChange={(e) => setCredentials({ ...credentials, email: e.target.value })} />
+//           <input type="password" placeholder='Password' value={credentials.password} onChange={(e) => setCredentials({ ...credentials, password: e.target.value })} />
+//         </div>
+//         <button onClick={handleSubmit}>Continue</button>
+//         {/* <p className="loginsignup-login">Already have an account?<span><Link to="/login">Login here</Link></span></p>
+       
+//         <div className="loginsignup-agree">
+//           <input type="checkbox" name='' id='' />
+//           <p>By continuing, I agree to the terms of use & privacy policy.</p>
+//         </div> */}
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default LoginSignup;
+
+
+
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import './CSS/Login.css';
+
+const Login = () => {
+  const [credentials, setCredentials] = useState({ email: '', password: '' });
+  const [error, setError] = useState('');
+  const [loggedIn, setLoggedIn] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  const checkUserExists = async (email, password) => {
+    try {
+      const response = await fetch("http://localhost:5002/api/auth/login", {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({  email: credentials.email, password: credentials.password })
+      });
+      // const response = await fetch(`http://localhost:5002/api/auth/loginuser`);
+       const data = await response.json();
+       console.log(data)
+// if(!response.success){
+//   return{
+//     success :false
+//   }
+// }
+      if (data.success ) {
+        window.location.href = '/';
+        return true;
+        //return data.password === password;
+      } else {
+        setError('User does not exist.');
+        return data
+        return false;
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      setError('Error connecting to the server.');
+      return false;
+    }
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await fetch("http://localhost:5000/api/auth/login", {
-      // credentials: 'include',
-      // Origin:"http://localhost:3000/login",
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ email: credentials.email, password: credentials.password })
+    setLoading(true);
+    try {
+      const { email, password } = credentials;
+      console.log(email,password)
+      const userExists = await checkUserExists(email, password);
+      console.log( userExists,'hello')
+      if (userExists.success) {
+        setLoggedIn(true);
+        setLoading(false);
 
-    });
-    const json = await response.json()
-    if (json.success) {
-      localStorage.setItem('userEmail', credentials.email)
-      localStorage.setItem('token', json.authToken)
-      navigate("/");
-
+      } else {
+        if(!userExists.success){
+          setError(userExists.message)
+          setLoading(false);
+        }
+        else{
+        setError('Invalid email or password.');
+        }
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      setError('An unexpected error occurred.');
     }
-    else {
-      alert("Enter Valid Credentials")
-    }
-  }
+    //setLoading(false);
+  };
 
-  const onChange = (e) => {
-    setCredentials({ ...credentials, [e.target.name]: e.target.value })
-  }
+  const handleInputChange = (e) => {
+    setCredentials({ ...credentials, [e.target.name]: e.target.value });
+    setError(''); // Clear error when user starts typing
+  };
 
   return (
-    <div style={{backgroundImage: 'url("https://images.pexels.com/photos/326278/pexels-photo-326278.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1")', height: '100vh', backgroundSize: 'cover' }}>
-      <div>
-        <Navbar />
-      </div>
-      <div className='container'>
-        <form className='w-50 m-auto mt-5 border bg-dark border-success rounded' onSubmit={handleSubmit}>
-          <div className="m-3">
-            <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>
-            <input type="email" className="form-control" name='email' value={credentials.email} onChange={onChange} aria-describedby="emailHelp" />
-            <div id="emailHelp" className="form-text">We'll never share your email with anyone.</div>
-          </div>
-          <div className="m-3">
-            <label htmlFor="exampleInputPassword1" className="form-label">Password</label>
-            <input type="password" className="form-control" value={credentials.password} onChange={onChange} name='password' />
-          </div>
-          <button type="submit" className="m-3 btn btn-success">Submit</button>
-          <Link to="/signup" className="m-3 mx-1 btn btn-danger">New User</Link>
-        </form>
-
+    <div className='login'>
+      <div className="login-container">
+        <h1>Login</h1>
+        {!loggedIn && error && <div className="error">{error}</div>}
+        {!loggedIn && (
+          <form onSubmit={handleSubmit}>
+            <input type="email" name="email" placeholder='Email Address' value={credentials.email} onChange={handleInputChange} required />
+            <input type="password" name="password" placeholder='Password' value={credentials.password} onChange={handleInputChange} required />
+            <button type="submit" disabled={loading}>{loading ? 'Loading...' : 'Login'}</button>
+          </form>
+        )}
+        {!loggedIn && (
+          <p className="login-signup">Don't have an account? <Link to="/signup">Sign up</Link></p>
+        )}
       </div>
     </div>
-  )
-}
+  );
+};
 
+export default Login;
 
 

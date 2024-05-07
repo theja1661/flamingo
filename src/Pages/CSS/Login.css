@@ -1,0 +1,85 @@
+/* Main login container */
+.login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f1f1f1; /* Light gray background */
+  }
+  
+  /* Login form container */
+  .login-container {
+    width: 400px;
+    padding: 40px;
+    border-radius: 10px;
+    background-color: #fff; /* White background */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow */
+  }
+  
+  /* Login title */
+  .login-container h1 {
+    font-size: 32px;
+    margin-bottom: 30px;
+    color: #333; /* Dark gray text color */
+    text-align: center;
+  }
+  
+  /* Form input fields */
+  .login-container form input {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd; /* Light gray border */
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 18px;
+  }
+  
+  /* Login button */
+  .login-container form button {
+    width: 100%;
+    padding: 15px;
+    background-color: #ff6b6b; /* Red button */
+    color: #fff; /* White text color */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background-color 0.3s ease; /* Smooth hover effect */
+  }
+  
+  /* Login button hover effect */
+  .login-container form button:hover {
+    background-color: #ff4040; /* Darker red on hover */
+  }
+  
+  /* Sign up link */
+  .login-signup {
+    margin-top: 20px;
+    font-size: 16px;
+    text-align: center;
+  }
+  
+  .login-signup a {
+    color: #007bff; /* Blue link color */
+    text-decoration: none;
+  }
+  
+  .login-signup a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Error message */
+  .error {
+    color: #ff6b6b; /* Red error message */
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+  
+  /* Success message */
+  .success {
+    color: #28a745; /* Green success message */
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+  
